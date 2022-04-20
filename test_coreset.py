@@ -33,10 +33,11 @@ print(min(coreset_index))
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 use_cuda = torch.cuda.is_available()
 
-"""
+
 # Compute coreset complement risk
 for frac in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
-    coreset_complement, _ = load_cifar_coreset_complement(dataset, batch_size, coreset_index, frac)
+    #coreset_complement, _ = load_cifar_coreset_complement(dataset, batch_size, coreset_index, frac)
+    coreset_complement, _ = load_cifar_coreset(dataset, batch_size, coreset_index, frac)
     risk_list = []
 
 
@@ -48,4 +49,4 @@ for frac in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
 
     print('frac: ' + str(frac))
     print('coreset complement risk: ' + str(np.mean(risk_list)))
-"""
+
