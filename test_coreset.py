@@ -31,11 +31,11 @@ use_cuda = torch.cuda.is_available()
 
 # Compute coreset complement risk
 for frac in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]:
-    coreset_complement = load_cifar_coreset_complement(dataset, batch_size, coreset_index, frac)
+    coreset_complement, _ = load_cifar_coreset_complement(dataset, batch_size, coreset_index, frac)
     risk_list = []
     for index in range(10):
         net = torch.load(load_path + 'resnet_' + dataset + '_sample_size' + str(sample_size) + '_frac_' + str(frac) + '_index_' + str(index+1))
-        acc = test(net, coreset_complement)
+        _, acc = test(net, coreset_complement)
         risk_list.append(1-acc)
 
 
