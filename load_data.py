@@ -385,7 +385,7 @@ def load_cifar_coreset_complement(dataset='cifar10', batch_size=128, coreset_ind
         trainset = torchvision.datasets.CIFAR100(root=data_path, train=True, download=True, transform=transforms_cifar_aug)
         num_classes = 100
 
-    frac_index = np.array(coreset_index[int(len(coreset_index) * frac):])
+    frac_index = np.array(coreset_index[int(len(coreset_index) * frac): ])
     trainset.data = np.array(trainset.data)[frac_index]
     trainset.targets = np.array(trainset.targets)[frac_index]
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=2)
