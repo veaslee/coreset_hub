@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--dataset', type=str, default='cifar10', help='dataset')
 parser.add_argument('--sample_size_frac', type=float, default=1.0, help='dataset')
 parser.add_argument('--batch_size', type=int, default=128, help='batch size')
-parser.add_argument('--load_path', type=str, default='../models/coreset/', help='iteration index')
+parser.add_argument('--load_path', type=str, default='../coreset_models/', help='iteration index')
 args = parser.parse_args()
 
 print('--------args----------')
@@ -21,6 +21,9 @@ sample_size_frac = args.sample_size_frac
 batch_size = args.batch_size
 load_path = args.load_path
 sample_size = int(sample_size_frac*50000)
+load_path = '../run/' + dataset + '/' + str(sample_size_frac) + '/' + str(sample_size) + '_selected.index'
+coreset_index = load_coreset_index(load_path)
+
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 use_cuda = torch.cuda.is_available()
