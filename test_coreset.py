@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 from utils import test
-from load_data import load_cifar_coreset_complement
+from load_data import load_cifar_coreset_complement, load_coreset_index
 import argparse
 
 parser = argparse.ArgumentParser()
