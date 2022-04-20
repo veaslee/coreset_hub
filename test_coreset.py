@@ -21,8 +21,8 @@ sample_size_frac = args.sample_size_frac
 batch_size = args.batch_size
 load_path = args.load_path
 sample_size = int(sample_size_frac*50000)
-load_path = '../run/' + dataset + '/' + str(sample_size_frac) + '/' + str(sample_size) + '_selected.index'
-coreset_index = load_coreset_index(load_path)
+corese_index_path = '../run/' + dataset + '/' + str(sample_size_frac) + '/' + str(sample_size) + '_selected.index'
+coreset_index = load_coreset_index(corese_index_path)
 
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
