@@ -32,7 +32,7 @@ def test(net, testloader, epoch=1):
         # Save checkpoint when best model
         acc = 100. * correct / total
         print("\n| Validation Epoch #%d\t\t\tLoss: %.4f Acc@1: %.2f%%" %(epoch, loss.item(), acc))
-    return test_loss, (acc/100).detach().cpu().numpy()
+    return (acc/100).detach().cpu().numpy()
 
 
 def train(net, trainloader, epoch=1, lr=0.1, lr_decay=True):
