@@ -24,11 +24,11 @@ sample_size = int(sample_size_frac*50000)
 corese_index_path = '../run/' + dataset + '/' + str(sample_size_frac) + '/' + str(sample_size) + '_selected.index'
 coreset_index = load_coreset_index(corese_index_path)
 
-print(len(core_index))
+print(len(coreset_index))
 
-print(max(core_index))
+print(max(coreset_index))
 
-print(min(core_index))
+print(min(coreset_index))
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 use_cuda = torch.cuda.is_available()
