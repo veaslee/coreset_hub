@@ -8,7 +8,7 @@ from PIL import Image
 from torchvision import datasets, transforms
 from torchvision.datasets import ImageFolder
 
-data_path = '/public/data1/users/leishiye/datasets'
+data_path = '/project/Leaves/datasets'
 
 transforms_cifar_aug = transforms.Compose([
         transforms.RandomCrop(32, padding=4),
